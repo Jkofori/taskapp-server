@@ -1,0 +1,26 @@
+enum Order {
+    asc
+    desc
+}
+
+input SortBy {
+    id: Order
+    text: Order
+    createdAt: Order
+}
+
+type Query {
+    tasks(orderBy: SortBy): [Task!]!
+}
+
+type Mutation {
+    createTask(text: String!): Task!
+    updateTask(id: ID!, text: String!): Task
+    deleteTask(id: ID!): Task
+}
+
+type Task {
+    id: ID!
+    text: String!
+    createdAt: String!
+}
